@@ -4,7 +4,7 @@ Este proyecto implementa un sistema de alarma de seguridad simple utilizando un 
 
 Cuando el sensor PIR detecta movimiento, el sistema activa una alarma local (un LED y un zumbador) y envía una notificación a través del protocolo MQTT a un tema específico en RabbitMQ. Esto permite que otros dispositivos o aplicaciones se suscriban y reaccionen a la alerta de intrusión.
 
-[Image of a simple Arduino security project]
+
 
 ---
 
@@ -63,4 +63,7 @@ Conecta los componentes al Arduino de la siguiente manera:
 
 ### Paso 4: Probar el Sistema
 
-1.  Abre el **Monitor Serie** en el IDE de Arduino (
+1.  Abre el **Monitor Serie** en el IDE de Arduino (a 9600 baudios) para ver los mensajes de estado.
+2.  Usa un cliente MQTT como **MQTT Explorer** para conectarte a tu bróker RabbitMQ.
+3.  Suscríbete al topic `seguridad/intrusos`.
+4.  Mueve la mano frente al sensor PIR. Deberías ver cómo el LED y el zumbador se activan y recibirás el mensaje `"¡Intrusos detectados!"` en el cliente MQTT.
